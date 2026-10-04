@@ -1,0 +1,6 @@
+.local/
+.env
+*.log
+/server
+/seed
+/coverage.out
