@@ -21,6 +21,9 @@ func New(db *sql.DB) http.Handler {
 	mux.HandleFunc("POST /login", s.login)
 	mux.HandleFunc("POST /logout", s.auth(s.logout))
 	mux.HandleFunc("GET /me", s.auth(s.me))
+	mux.HandleFunc("POST /tickets", s.auth(s.createTicket))
+	mux.HandleFunc("GET /tickets", s.auth(s.listTickets))
+	mux.HandleFunc("GET /tickets/{id}", s.auth(s.readTicket))
 	return mux
 }
 
